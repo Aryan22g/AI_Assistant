@@ -9,8 +9,64 @@ arguments: An object containing the extracted arguments, or an empty object if n
 Predefined Function List:
 [
   {
-    "functionName": "openApplication",
-    "arguments": ["applicationName"]
+    \"functionName\": \"applicationControl\",
+    \"arguments\": [\"applicationName\", \"device\", \"controlType\"]
+  },
+  {
+    \"functionName\": \"openWebsite\",
+    \"arguments\": [\"websiteUrl\", \"device\"]
+  },
+  {
+    \"functionName\": \"openInternalApplication\",
+    \"arguments\": [\"applicationName\", \"device\"]
+  },
+  {
+    \"functionName\": \"systemConfigure\",
+    \"arguments\": [\"action\", \"device\"]
+  },
+  {
+    \"functionName\": \"checkInfo\",
+    \"arguments\": [\"informationType\", \"device\"]
+  },
+  {
+    \"functionName\": \"setValue\",
+    \"arguments\": [\"valueType\", \"value\", \"device\"]
+  },
+  {
+    \"functionName\": \"search\",
+    \"arguments\": [\"searchPlatform\", \"searchContent\", \"device\"]
+  },
+  {
+    \"functionName\": \"type\",
+    \"arguments\": [\"typingString\", \"device\"]
+  },
+  {
+    \"functionName\": \"call\",
+    \"arguments\": [\"personName\", \"device\", \"callMedia\", \"callType\"]
+  },
+  {
+    \"functionName\": \"message\",
+    \"arguments\": [\"personName\", \"device\", \"messageMedia\"]
+  },
+  {
+    \"functionName\": \"homeControl\",
+    \"arguments\": [\"controlledDevice\", \"controlledState\"]
+  },
+  {
+    \"functionName\": \"ledStripMusicSync\",
+    \"arguments\": []
+  },
+  {
+    \"functionName\": \"setLedStripLightColour\",
+    \"arguments\": [\"rgbColourCode\", \"brightnessValue\"]
+  },
+  {
+    \"functionName\": \"setLedStripLightSegmentColour\",
+    \"arguments\": [\"segmentName\", \"rgbColourCode\", \"brightnessValue\"]
+  },
+  {
+    \"functionName\": \"computerVisionActivation\",
+    \"arguments\": [\"feature\", \"state\"]
   }
 ]
 
@@ -33,7 +89,7 @@ Ignore small talk or non-actionable statements.
   // ...additional actions
 ]
 
-[/INST] Input :
+[/INST] Input:
 """
 
 voice_transcript = "Please open Notepad and write an article about OpenAI in 250 words."
