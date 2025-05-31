@@ -24,7 +24,7 @@ Install Ollama & setup
     i.	windows: ( <env_name>\Scripts\activate )
     ii.	mac/linux: ( source <env_name>/bin/activate )
 4.	install python packages:
-  a.	pip install requests openai fastapi streamliti
+  a.	pip install requests openai fastapi streamlit
 5.	running your first AI model;
   a.	download an ai model (here, Mistral): ollama pull mistral
   b.	run a basic ai chat session: ollama run mistral
