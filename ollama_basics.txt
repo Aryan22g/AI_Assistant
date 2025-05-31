@@ -19,13 +19,13 @@ Install Ollama & setup
 1.	Download ollama from website
 2.	Download python (3.12 or above)  (python -v)
 3.	Create venv:
-a.	python -m venv <env_name>
-b.	to activate:
-i.	windows: ( <env_name>\Scripts\activate )
-ii.	mac/linux: ( source <env_name>/bin/activate )
+  a.	python -m venv <env_name>
+  b.	to activate:
+    i.	windows: ( <env_name>\Scripts\activate )
+    ii.	mac/linux: ( source <env_name>/bin/activate )
 4.	install python packages:
-a.	pip install requests openai fastapi streamliti
+  a.	pip install requests openai fastapi streamliti
 5.	running your first AI model;
-a.	download an ai model (here, Mistral): ollama pull mistral
-b.	run a basic ai chat session: ollama run mistral
-c.	running a model programmatically with python
+  a.	download an ai model (here, Mistral): ollama pull mistral
+  b.	run a basic ai chat session: ollama run mistral
+  c.	running a model programmatically with python
