@@ -1,0 +1,46 @@
+in command_executor.py:
+1. ``Add these lines on top``
+from openai_parser import parse_transcript
+import json
+
+2. ``replace execute function with below code:``
+def execute(self, actions: list):
+  for action_obj in actions:
+      function_name = action_obj.get("functionName")
+      if function_name is None:
+          generalQuestionResponse = parse_transcript(action_obj.get("action"), False)
+          response = json.loads(generalQuestionResponse)
+          print(response)
+      
+      arguments = action_obj.get("arguments", {})
+  
+      handler = self.function_map.get(function_name)
+      if handler:
+          handler(arguments)
+      else:
+          print(f"No handler found for function: {function_name}")
+
+
+In openai_parser.py:
+1. ``Add this new prompt:``
+general_prompt = """[INST]  Your name is OM. You are a helpful, friendly, and knowledgeable chatbot designed to assist users with a wide range of topics. You should answer questions clearly, accurately, and conversationally. If you don’t know something, admit it honestly. You can provide explanations, solve problems, help with writing, give advice, and hold casual conversations. Stay professional but approachable, and adapt your tone depending on the user’s mood and intent.
+[/INST] Input :
+"""
+2. ``replace parse_transcript fn with this``
+def parse_transcript(transcript,calledByParent):
+    prompt = None
+    if(calledByParent==True):
+      prompt = prompt_template
+    else:
+      prompt = general_prompt
+    result = client.responses.create(
+        model="gpt-4.1-mini",
+        input=f"{prompt} {transcript}"
+    )
+    return result.output_text
+
+
+in main.py
+1. ``add another argument, True when function is called:``
+
+output = parse_transcript(transcript,True)
